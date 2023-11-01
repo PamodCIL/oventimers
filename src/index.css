@@ -5,9 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: black;
-  color: white;
-
+  background-color: lightblue;
 }
 
 code {
@@ -15,4 +13,9 @@ code {
     monospace;
 }
 
+
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5em;word-break:normal;}
+.tg .tg-0lax{text-align:left;vertical-align:top}
 

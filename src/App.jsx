@@ -1,27 +1,19 @@
 import './App.css';
 import React, { useEffect, useState } from "react";
-import Timer from "./components/OvenSlot/Timer";
-import ButtonUsage from './components/OvenSlot/Timer';
-import Picker from './components/OvenSlot/Picker';
-
+import Timer from "./components/OvenTimer/Timer";
+import Grid from "./components/OvenGrid/Grid";
+import Slot from "./components/OvenSlot/Slot"
 
 function App() {
   // States of the whole page //
-  const [timerList, setTimerList] = useState(getStorage());
-  const [InputFilter, setInputFilter] = useState("");
-
-  // Functions
-  function getStorage() {
-    let timerStorage = localStorage.getItem("timerList");
-    if (!timerStorage || timerStorage === []) return [];
-    return JSON.parse(timerStorage.toString());
-  }
 
   return (
     <section>
-      <p>tdgfdfsdest</p>
-      <ButtonUsage></ButtonUsage>
-      <Picker></Picker>
+      <p>Cleanroom Timers</p>
+      {/* Generate 3 grids, one for each oven */}
+      <Grid ovenNumber={1} />
+      <Grid ovenNumber={1} />
+      <Grid ovenNumber={1} />
     </section>
   );
 }
