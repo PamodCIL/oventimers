@@ -1,5 +1,8 @@
 import './App.css';
 import React, { useEffect, useState } from "react";
+import Timer from "./components/OvenSlot/Timer";
+import ButtonUsage from './components/OvenSlot/Timer';
+import Picker from './components/OvenSlot/Picker';
 
 
 function App() {
@@ -15,7 +18,11 @@ function App() {
   }
 
   return (
-    <p>test</p>
+    <section>
+      <p>tdgfdfsdest</p>
+      <ButtonUsage></ButtonUsage>
+      <Picker></Picker>
+    </section>
   );
 }
 
