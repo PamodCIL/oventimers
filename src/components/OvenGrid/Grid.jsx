@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from "react";
 import Slot from "../OvenSlot/Slot"
 
 
 export default function Grid(props) {
-    const { ovenNumber } = props;
     return (
     <section class="grid-container">
         <table class="oven-grid">

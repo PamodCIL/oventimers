@@ -41,6 +41,7 @@ function getMidNight() {
     return time;
 }
 
+
 export function getInputStorage(id) {
     let inputStorage = localStorage.getItem(`input ${id}`);
     if (inputStorage === "null" || !inputStorage) {

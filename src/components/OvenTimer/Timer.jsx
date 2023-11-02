@@ -114,13 +114,3 @@ export default function Timer(props) {
 }
 
 
-// // One whole timer entity
-// export default function Timer(props) {
-//   const time = new Date();
-//   time.setSeconds(time.getSeconds() + 600); // 10 minutes timer
-//   return (
-//     <section>
-//       <MyTimer expiryTimestamp={time} />
-//     </section>
-//   )
-// }
