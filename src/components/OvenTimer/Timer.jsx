@@ -9,7 +9,8 @@ import NewTimer from "./NewTimer.jsx"
 import * as utils from "../utils.js";
 
 
-function MyTimer({ expiryTimestamp }) {
+function MyTimer({ props }) {
+  let { expiryTimestamp} = props;
   const {
     totalSeconds,
     seconds,
@@ -21,9 +22,16 @@ function MyTimer({ expiryTimestamp }) {
     pause,
     resume,
     restart,
-  } = useTimer({ expiryTimestamp, onExpire: () => console.warn('onExpire called') });
+  } = useTimer({ 
+    autoStart: false,
+    expiryTimestamp, 
+    onExpire: () => {
+      alert("Expired Timer") 
+    }
+  });
 
 
+  // Actual things that gets returned - should contain everything that generates when a new timer generates
   return (
     <div style={{textAlign: 'center'}}>
       <div style={{fontSize: '50px'}}>

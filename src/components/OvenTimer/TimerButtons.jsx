@@ -6,37 +6,30 @@ import * as utils from "../utils";
 
 
 export default function TimerButtons(props) {
-    const { pause, resume, restart, isRunning, clockValues, input } = props;
+  const { pause, resume, restart, isRunning, clockValues, input } = props;
     return (
       <div className="buttons">
+        {/* <PauseIcon/>
+        <PlayArrowIcon/> */}
         <IconButton
-          // style={{ color: "white" }}
-          onClick={() => {
-            if (!isRunning()) {
-              if (!clockValues().every((e) => Boolean(e))) {
-                let time = utils.parseTime(input());
-                if (!time) return;
-                restart(time);
-              } else {
-                resume();
-              }
+        // style={{ color: "white" }}
+        onClick={() => {
+          if (!isRunning()) {
+            if (!clockValues().every((e) => Boolean(e))) {
+              let time = utils.parseTime(input());
+              if (!time) return;
+              restart(time);
             } else {
-              pause();
+              resume();
             }
-          }}
-        >
-          {!isRunning() ? <PlayArrowIcon /> : <PauseIcon />}
-        </IconButton>
-        <IconButton
-          // style={{ color: "white" }}
-          onClick={() => {
-            let time = utils.parseTime(input());
-            restart(time);
+          } else {
             pause();
-          }}
-        >
-          <ReplayIcon />
-        </IconButton>
+          }
+        }}
+      >
+      {!isRunning() ? <PlayArrowIcon /> : <PauseIcon />}
+      </IconButton>      
+        <ReplayIcon/>
       </div>
     );
   }
