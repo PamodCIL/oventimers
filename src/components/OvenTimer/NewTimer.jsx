@@ -16,7 +16,6 @@ import { IconButton } from '@mui/material';
 
 export default function AddTimerBtn(props) {
   const { createTimer } = props;
-  if 
   return (
     <div class="addTimerBar">
       <IconButton
