@@ -16,7 +16,7 @@ export default function TimerInfo(props) {
   let { removeTimer, timerName } = props;
   return (
     <div className="title-bar">
-      <h2>{timerName}</h2>
+      <h3>{timerName}</h3>
       <IconButton
         // style={{ color: "white" }}
         aria-label="delete"
