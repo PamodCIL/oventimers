@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Timer from "../OvenTimer/Timer";
 import NewTimer from "../OvenTimer/NewTimer";
 import Swal from "sweetalert2";

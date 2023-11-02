@@ -77,9 +77,10 @@ export default function Timer(props) {
       <TimePicker
         ampm={false}
         ampmInClock={false}
-        views={["hours", "minutes", "seconds"]}
-        inputFormat="HH:mm:ss"
-        mask="__:__:__"
+        maxTime={new Date().setHours(2)}
+        views={["hours", "minutes"]}
+        inputFormat="HH:mm"
+        mask="__:__"
         label="Edit Duration"
         value={input}
         onChange={(newValue) => {
