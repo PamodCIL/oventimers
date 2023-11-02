@@ -7,10 +7,12 @@ import { TimePicker } from '@mui/x-date-pickers'
 import TimerButtons from "./TimerButtons.jsx";
 import NewTimer from "./NewTimer.jsx"
 import * as utils from "../utils.js";
+import TimerInfo from "./TimerInfo.jsx"
 
 
-function MyTimer({ props }) {
-  let { expiryTimestamp} = props;
+export default function Timer(props) {
+  let { expiryTimestamp, isHidden, removeTimer, timerName } = props;
+  // alert("in timer" + expiryTimestamp)
   const {
     totalSeconds,
     seconds,
@@ -30,34 +32,84 @@ function MyTimer({ props }) {
     }
   });
 
+  const clockValues = [hours, minutes, seconds];
+  const [input, setInput] = useState(utils.getInputStorage(0));
+
 
   // Actual things that gets returned - should contain everything that generates when a new timer generates
-  return (
-    <div style={{textAlign: 'center'}}>
-      <div style={{fontSize: '50px'}}>
-        <span>{days}</span>:<span>{hours}</span>:<span>{minutes}</span>:<span>{seconds}</span>
+ 
+
+  if (isHidden) return <></>;
+
+  function TimerBody() {
+    return (
+      <div className="timer-buttons">
+        <div className="actual-timer">
+        {clockValues.map((item, index) => (
+            <>
+              <div>{item < 10 ? `0${item}` : item}</div>
+              {index === clockValues.length - 1 ? "" : ":"}
+            </>
+          ))}
+          </div>
+          <TimerButtons
+          pause={() => pause()}
+          resume={() => resume()}
+          restart={(time) => restart(time)}
+          isRunning={() => isRunning}
+          clockValues={() => clockValues}
+          input={() => input}
+        />
       </div>
-      <button onClick={start}>Start</button>
-      <button onClick={pause}>Pause</button>
-      <button onClick={resume}>Resume</button>
-      <button onClick={() => {
-        // Restarts to 5 minutes timer
-        const time = new Date();
-        time.setSeconds(time.getSeconds() + 300);
-        restart(time)
-      }}>Restart</button>
-    </div>
+    )
+  }
+
+
+  return (
+    <section className="timer-wrapper">
+      <TimerInfo 
+      removeTimer={removeTimer}
+      timerName={timerName}
+      />
+      <LocalizationProvider dateAdapter={AdapterDateFns}>
+        <TimePicker
+          ampm={false}
+          ampmInClock={false}
+          views={["hours", "minutes", "seconds"]}
+          inputFormat="HH:mm:ss"
+          mask="__:__:__"
+          label="Edit Duration"
+          value={input}
+          onChange={(newValue) => {
+            setInput(newValue);
+          }}
+          textField={(params) => (
+            <TextField
+              // style={{ color: "white" }}
+              onKeyDown={(event) => {
+                if (event.key === "Enter") {
+                  let time = utils.parseTime(input);
+                  restart(time);
+                }
+              }}
+              {...params}
+            />
+          )}
+        />
+      </LocalizationProvider>
+      <TimerBody />
+    </section>
   );
 }
 
 
-// One whole timer entity
-export default function Timer(props) {
-  const time = new Date();
-  time.setSeconds(time.getSeconds() + 600); // 10 minutes timer
-  return (
-    <section>
-      <MyTimer expiryTimestamp={time} />
-    </section>
-  )
-}
+// // One whole timer entity
+// export default function Timer(props) {
+//   const time = new Date();
+//   time.setSeconds(time.getSeconds() + 600); // 10 minutes timer
+//   return (
+//     <section>
+//       <MyTimer expiryTimestamp={time} />
+//     </section>
+//   )
+// }

@@ -29,7 +29,16 @@ export default function TimerButtons(props) {
       >
       {!isRunning() ? <PlayArrowIcon /> : <PauseIcon />}
       </IconButton>      
-        <ReplayIcon/>
+      <IconButton
+        // style={{ color: "white" }}
+        onClick={() => {
+          let time = utils.parseTime(input());
+          restart(time);
+          pause();
+        }}
+      >
+        <ReplayIcon />
+      </IconButton>      
       </div>
     );
   }
