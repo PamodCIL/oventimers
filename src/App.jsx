@@ -14,12 +14,20 @@ export function App() {
 
   return (
     <section>
-      <h1>Cleanroom Timers</h1>
       {/* Generate 3 grids, one for each oven */}
-      <div className='ovens-wrapper'>
-        <Grid ovenNumber={1} />
-        <Grid ovenNumber={2} />
-        <Grid ovenNumber={3} />
+      <div className='all-ovens-wrapper'>
+        <div ovenWrapper="oven-wrapper">
+          <h1 className='oven-name'>Oven 1</h1>
+          <Grid ovenNumber={1} />
+        </div>
+        <div ovenWrapper="oven-wrapper">
+          <h1 className='oven-name'>Oven 2</h1>
+          <Grid ovenNumber={2} />
+        </div>
+        <div ovenWrapper="oven-wrapper">
+          <h1 className='oven-name'>Oven 3</h1>
+          <Grid ovenNumber={3} />
+        </div>
       </div>
     </section>
   );

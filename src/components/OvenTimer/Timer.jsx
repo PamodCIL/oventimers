@@ -27,7 +27,10 @@ export default function Timer(props) {
     autoStart: false,
     expiryTimestamp, 
     onExpire: () => {
-      alert("Expired Timer") 
+      let time = utils.parseTime(input);
+      restart(time);
+      pause();
+      utils.playAudio(timerName);
     }
   });
 

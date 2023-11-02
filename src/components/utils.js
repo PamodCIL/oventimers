@@ -1,15 +1,16 @@
 import Swal from "sweetalert2";
+import audioURL from "../media/Leapfrog.ogg";
 
 
-export function playAudio(id) {
-    // Swal.close();
-    // let audio = new Audio(audioURL);
-    // audio.loop = true;
-    // audio.play();
-    // Swal.fire({ title: `${getIdName(id)}'s off`, icon: "warning" }).then(() => {
-    //   audio.loop = false;
-    //   audio.pause();
-    // });
+export function playAudio(timerName) {
+    Swal.close();
+    let audio = new Audio(audioURL);
+    audio.loop = true;
+    audio.play();
+    Swal.fire({ title: `${timerName}'s off`, icon: "warning" }).then(() => {
+      audio.loop = false;
+      audio.pause();
+    });
   }
 
 

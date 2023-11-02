@@ -66,9 +66,6 @@ export default function Slot(props) {
   );
 }
 
-function testAlert() {
-  alert("reaching")
-}
 
 // export default function MyCheckbox() {
 //     const [timer, setLiked] = useState(false);
