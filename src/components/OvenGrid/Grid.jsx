@@ -1,6 +1,4 @@
-import Timer from "../OvenTimer/Timer";
 import React, { useState, useEffect } from "react";
-import { styled } from '@mui/material/styles';
 import Slot from "../OvenSlot/Slot"
 
 
