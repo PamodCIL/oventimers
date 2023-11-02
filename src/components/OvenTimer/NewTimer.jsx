@@ -1,6 +1,4 @@
-import AddIcon from '@mui/icons-material/Add';
-import Timer from './Timer';
-import { useState } from 'react';
+import AddAlarmIcon from '@mui/icons-material/AddAlarm';
 import { IconButton } from '@mui/material';
 
 
@@ -18,16 +16,17 @@ import { IconButton } from '@mui/material';
 
 export default function AddTimerBtn(props) {
   const { createTimer } = props;
+  if 
   return (
-    <>
+    <div class="addTimerBar">
       <IconButton
         onClick={() => {
           createTimer();
         }}
       >
-        <AddIcon style={{ color: "white" }} />
+        <AddAlarmIcon style={{ color: "grey" }} />
       </IconButton>
-    </>
+    </div>
   );
 }
 

@@ -8,9 +8,6 @@ import { IconButton } from '@mui/material';
 import Swal from "sweetalert2";
 
 
-
-
-
 export default function Slot(props) {
   const [timer, setTimer] = useState({
     name:"null",
@@ -54,14 +51,17 @@ export default function Slot(props) {
 
   return (
     <>
-    <NewTimer createTimer={createTimer} />
-    <Timer
-      timerName={timer.name}
-      isHidden={timer.isHidden}
-      expiryTimestamp={timer.expiryTimestamp}
-      updateTimeoutSeconds={(seconds) => timeChange(timer, seconds)}
-      removeTimer={() => removeTimer(timer)}
-    />
+    { timer.isHidden ?     
+      <NewTimer createTimer={createTimer} />
+    :  
+      <Timer
+        timerName={timer.name}
+        isHidden={timer.isHidden}
+        expiryTimestamp={timer.expiryTimestamp}
+        updateTimeoutSeconds={(seconds) => timeChange(timer, seconds)}
+        removeTimer={() => removeTimer(timer)}
+      />
+    }
     </>
   );
 }

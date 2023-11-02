@@ -14,7 +14,7 @@ export function App() {
 
   return (
     <section>
-      <p>Cleanroom Timers</p>
+      <h1>Cleanroom Timers</h1>
       {/* Generate 3 grids, one for each oven */}
       <div className='ovens-wrapper'>
         <Grid ovenNumber={1} />
