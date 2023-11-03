@@ -4,7 +4,7 @@ import OvenInfo from "./RemoveGrid";
 export default function Grid(props) {
     let { ovenName, ovenTemp, ovenSlots, ovenCustomer, ovenTime, ovenHidden, removeOven } = props;
 
-    if (ovenHidden==true) {
+    if (ovenHidden===true) {
         return (
             <></>
         )

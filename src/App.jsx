@@ -69,7 +69,7 @@ export function App() {
         case 1:
           setOven1(
             {
-              ovenNumber:     1,
+              number:     1,
               name:           formValues[0],
               temp:           formValues[1],
               slots:          formValues[2],
@@ -82,7 +82,7 @@ export function App() {
         case 2:
           setOven2(
             {
-              ovenNumber:     2,
+              number:     2,
               name:           formValues[0],
               temp:           formValues[1],
               slots:          formValues[2],
@@ -95,7 +95,7 @@ export function App() {
         case 3:
           setOven3(
             {
-              ovenNumber:     3,
+              number:     3,
               name:           formValues[0],
               temp:           formValues[1],
               slots:          formValues[2],
