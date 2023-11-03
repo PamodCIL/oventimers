@@ -5,28 +5,46 @@ import MicrowaveIcon from '@mui/icons-material/Microwave';
 import Swal from "sweetalert2";
 import React, { useState } from "react";
 
-
-
 import Grid from "./components/OvenGrid/Grid";
-
 
 export function App() {
 
-  const [oven, setOven] = useState({
-    number:         null,
-    name:           null,
+  const [oven1, setOven1] = useState({
+    number:         1,
+    name:           "null1",
     temp:           null,
     slots:          null,
     customerNumber: null,
     cureTime:       null,
-    isHidden:       true,
+    hidden:         true,
   })
 
-  const [ovenList, setOvenList] = useState([])
+  const [oven2, setOven2] = useState({
+    number:         2,
+    name:           "null2",
+    temp:           null,
+    slots:          null,
+    customerNumber: null,
+    cureTime:       null,
+    hidden:         true,
+  })
 
-  async function createOven() {
+  const [oven3, setOven3] = useState({
+    number:         3,
+    name:           "null3",
+    temp:           null,
+    slots:          null,
+    customerNumber: null,
+    cureTime:       null,
+    hidden:         true,
+  })
+
+
+  const ovenList = [oven1, oven2, oven3];
+
+  async function createOven(ovenNumber) {
     const { value: formValues } = await Swal.fire({
-      title: 'Multiple inputs',
+      title: 'Enter Oven Info',
       html:
         '<input id="swal-input1" class="swal2-input">Name</input>' +
         '<input id="swal-input2" class="swal2-input">Temperature</input>' +
@@ -46,44 +64,136 @@ export function App() {
     })
     
     if (formValues) {
-      setOven(
-        {
-          name:           formValues[0],
-          temp:           formValues[1],
-          slots:          formValues[2],
-          customerNumber: formValues[3],
-          cureTime:       formValues[4],
-          isHidden:       false,
-        },
-      )
+      // choose which oven to set
+      switch(ovenNumber) {
+        case 1:
+          setOven1(
+            {
+              ovenNumber:     1,
+              name:           formValues[0],
+              temp:           formValues[1],
+              slots:          formValues[2],
+              customerNumber: formValues[3],
+              cureTime:       formValues[4],
+              hidden:         false,
+            },
+          )
+          break;
+        case 2:
+          setOven2(
+            {
+              ovenNumber:     2,
+              name:           formValues[0],
+              temp:           formValues[1],
+              slots:          formValues[2],
+              customerNumber: formValues[3],
+              cureTime:       formValues[4],
+              hidden:         false,
+            },
+          )
+          break;
+        case 3:
+          setOven3(
+            {
+              ovenNumber:     3,
+              name:           formValues[0],
+              temp:           formValues[1],
+              slots:          formValues[2],
+              customerNumber: formValues[3],
+              cureTime:       formValues[4],
+              hidden:         false,
+            },
+          )
+          break;
+      }
     }
   }
 
-  alert(oven.isHidden)
+  function removeOven(ovenNumber) {
+    switch(ovenNumber) {
+      case 1:
+        setOven1(
+          {
+            ovenNumber:     1,
+            name:           null,
+            temp:           null,
+            slots:          null,
+            customerNumber: null,
+            cureTime:       null,
+            hidden:         true,
+          },
+        )
+        break;
+        case 2:
+        setOven2(
+          {
+            ovenNumber:     2,
+            name:           null,
+            temp:           null,
+            slots:          null,
+            customerNumber: null,
+            cureTime:       null,
+            hidden:         true,
+          },
+        )
+        break;
+        case 3:
+        setOven3(
+          {
+            ovenNumber:     3,
+            name:           null,
+            temp:           null,
+            slots:          null,
+            customerNumber: null,
+            cureTime:       null,
+            hidden:         true,
+          },
+        )
+        break;
+    }
+  }
 
-  return (
-    <section>
-      <div class="add-oven">
-      <IconButton
-        onClick={() => {
-          createOven();
-        }}
-      >
-      <MicrowaveIcon style={{ color: "grey" }} />
-      </IconButton>
-      </div>
-      <div className='all-ovens-wrapper'>
-          <Grid 
-          ovenName={oven.name} 
-          ovenTemp={oven.temp}
-          ovenSlots={oven.slots}
-          ovenCustomer={oven.customerNumber}
-          ovenTime={oven.cureTime}
-          ovenHidden={oven.isHidden}
-        />  
-      </div>
-    </section>
-  );
+  function returnOven(ovenNumber) {
+    switch(ovenNumber) {
+      case 1:
+        return oven1;
+      case 2:
+        return oven2;
+      case 3:
+        return oven3;
+    }
+  }
+
+  let displayBuffer = [];
+
+  for (let ovenKey of ovenList) {
+    // alert(returnOven(ovenKey.number).name);
+    displayBuffer.push(
+      <section>
+        <div class="add-oven">
+        <IconButton
+          onClick={() => {
+            createOven(ovenKey.number);
+          }}
+        >
+        <MicrowaveIcon style={{ color: "grey" }} />
+        </IconButton>
+        </div>
+        <div className='all-ovens-wrapper'>
+            <Grid 
+            ovenName={returnOven(ovenKey.number).name} 
+            ovenTemp={returnOven(ovenKey.number).temp}
+            ovenSlots={returnOven(ovenKey.number).slots}
+            ovenCustomer={returnOven(ovenKey.number).customerNumber}
+            ovenTime={returnOven(ovenKey.number).cureTime}
+            ovenHidden={returnOven(ovenKey.number).hidden}
+            removeOven={() => removeOven(returnOven(ovenKey.number))}
+          />  
+        </div>
+      </section>
+    );
+  }
+  return (<>{displayBuffer}</>)
 }
 
 export default App;
