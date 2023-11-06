@@ -33,9 +33,9 @@ code {
 .oven-box {
   margin: 3px;
   display:flex;
-  border: blue 2px solid;
+  border: #acacb8 2px solid;
   border-radius: 15px;
-  background: rgba(130, 235, 235, 0.473);
+  background: rgb(142 200 200 / 47%);
 }
 
 

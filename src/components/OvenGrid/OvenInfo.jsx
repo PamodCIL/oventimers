@@ -1,4 +1,5 @@
 import DeleteIcon from '@mui/icons-material/Delete';
+import CancelPresentationIcon from '@mui/icons-material/CancelPresentation';
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
 import { useState } from 'react';
 import { IconButton } from '@mui/material';
@@ -40,7 +41,7 @@ export default function OvenInfo(props) {
             removeOven();
           }}
         >
-          <DeleteIcon />
+          <CancelPresentationIcon />
         </IconButton>
       </div>
     );
