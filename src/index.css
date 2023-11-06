@@ -89,6 +89,11 @@ tbody {
 }
 
 
+.timer-wrapper {
+  min-width: 105px;
+}
+
+
 .actual-timer {
   color: #414756;
   display: flex;

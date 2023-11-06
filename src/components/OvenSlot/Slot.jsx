@@ -1,37 +1,41 @@
 import React, { useState } from "react";
-import Timer from "../OvenTimer/Timer";
+import TimerConfig from "../OvenTimer/TimerConfig";
+import TimerBody from "../OvenTimer/TimerBody";
 import NewTimer from "../OvenTimer/NewTimer";
 import Swal from "sweetalert2";
+import TimerInfo from "../OvenTimer/TimerInfo";
+import { getOvenDuration } from "../utils";
 
 
 export default function Slot(props) {
+  
+  let { ovenTime, ovenNumber } = props;
   const [timer, setTimer] = useState({
-    name:"null",
-    timeoutSeconds: 0,
     expiryTimestamp: 0,
     isHidden: true,
   });
 
+  const duration = getOvenDuration(ovenNumber)
+
+  
+
   // Function called when you press '+', generates a new timer
-  async function createTimer() {
-    await Swal.fire({
-      title: "Placeholder",
-      input: "text",
-      inputValidator: (value) => {
-        if (!value) return "Invalid Input";
-      },
-    }).then((result) => {
-      if (!result.value) return;
+  function createTimer() {
+    // read the duration value
+    const midnight = new Date();
+    midnight.setHours(0, 0, 0, 0)
+    let durationDiff = (duration-midnight) / 1000;
+    const time = new Date();
+    time.setSeconds(time.getSeconds() + durationDiff); // 10 minutes timer
+    //todo delete after
+    
       setTimer(
         {
-          name: result.value,
           isHidden: false,
-          timeoutSeconds: 0,
-          expiryTimestamp: 0,
+          expiryTimestamp: time,
         },
       );
-    });
-  }
+    }
 
   function timeChange(seconds) {
     setTimer(seconds)
@@ -42,22 +46,28 @@ export default function Slot(props) {
       isHidden: true,
       timeoutSeconds: 0,
       expiryTimestamp: 0,
+      ovenTime: 0,
     })
   }
 
+
   return (
     <>
-    { timer.isHidden ?     
-      <NewTimer createTimer={createTimer} />
-    :  
-      <Timer
-        timerName={timer.name}
-        isHidden={timer.isHidden}
-        expiryTimestamp={timer.expiryTimestamp}
-        updateTimeoutSeconds={(seconds) => timeChange(timer, seconds)}
-        removeTimer={() => removeTimer(timer)}
+      { timer.isHidden ? 
+        <NewTimer
+        createTimer={() => createTimer()}
       />
-    }
+      :
+      <>
+        <TimerBody
+          expiryTimestamp={timer.expiryTimestamp}
+          updateTimeoutSeconds={(seconds) => timeChange(timer, seconds)}
+        />
+        <TimerInfo
+        removeTimer={removeTimer}
+        />
+        </>
+      }      
     </>
   );
 }

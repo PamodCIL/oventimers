@@ -1,12 +1,13 @@
 import DeleteIcon from '@mui/icons-material/Delete';
+import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
 import { useState } from 'react';
 import { IconButton } from '@mui/material';
-import NewTimer from "../OvenTimer/NewTimer";
-import Swal from "sweetalert2";
+import TimerConfig from '../OvenTimer/TimerConfig';
+import { ThumbUp } from '@mui/icons-material';
 
 
 export default function OvenInfo(props) {
-    let { ovenName, ovenTemp, ovenSlots, ovenCustomer, ovenTime, ovenHidden, removeOven } = props;
+    let { ovenName, ovenTemp, ovenSlots, ovenCustomer, ovenTime, ovenHidden, ovenNumber, removeOven } = props;
 
     const [timer, setTimer] = useState({
       name:"null",
@@ -19,6 +20,7 @@ export default function OvenInfo(props) {
       setTimer(seconds)
     }
 
+
     return (
       <div className="title-bar">
         <h1 className='oven-name'>{ovenName}</h1>
@@ -26,9 +28,12 @@ export default function OvenInfo(props) {
           <p>Temp: {ovenTemp}</p>
           <p>Customer: {ovenCustomer}</p>
         </div>
-        <NewTimer createTimer={createTimer} />
+        <TimerConfig
+          expiryTimestamp={timer.expiryTimestamp}
+          ovenNumber={ovenNumber}
+          updateTimeoutSeconds={(seconds) => timeChange(timer, seconds)}
+        />
         <IconButton
-          // style={{ color: "white" }}
           aria-label="delete"
           color="default"
           onClick={() => {

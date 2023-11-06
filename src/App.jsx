@@ -50,7 +50,7 @@ export function App() {
       html:
         '<input type="text" id="swal-input1" class="swal2-input">Name</input>' +
         '<input type="number" min="100" max="300" value="200" step="10" id="swal-input2" class="swal2-input">Temperature</input>' +
-        '<input type="number" max="12" min="2" step="2" id="swal-input3" class="swal2-input">Slots</input>' +
+        '<input type="number" max="12" min="2" step="2" value="2" id="swal-input3" class="swal2-input">Slots</input>' +
         '<input type=text" id="swal-input4" class="swal2-input">Customer</input>',
       focusConfirm: false,
       preConfirm: () => {
@@ -181,6 +181,7 @@ export function App() {
             ovenSlots={returnOven(ovenKey.number).slots}
             ovenCustomer={returnOven(ovenKey.number).customerNumber}
             ovenHidden={returnOven(ovenKey.number).hidden}
+            ovenNumber={ovenKey.number}
             removeOven={() => removeOven(returnOven(ovenKey.number))}
           />  
         </div>

@@ -42,10 +42,24 @@ function getMidNight() {
 }
 
 
-export function getInputStorage(id) {
-    let inputStorage = localStorage.getItem(`input ${id}`);
+export function getInputStorage(ovenNumber) {
+    let inputStorage = localStorage.getItem(ovenNumber);
     if (inputStorage === "null" || !inputStorage) {
         return getMidNight();
     }
     return new Date(JSON.parse(inputStorage.toString()));
+}
+
+
+export function setOvenDuration(ovenNumber, ovenDuration) {
+  let storageString = ("Oven"+ovenNumber)
+  localStorage.setItem(storageString, ovenDuration.toJSON());
+}
+
+
+export function getOvenDuration(ovenNumber) {
+  let storageString = ("Oven"+ovenNumber)
+  let ovenDuration = localStorage.getItem(storageString)
+  let duration = new Date(ovenDuration)
+  return duration  
 }
