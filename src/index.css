@@ -16,14 +16,24 @@ code {
 }
 
 
-.all-ovens-wrapper {
+.oven-instance {
   display: flex;
+  flex-direction: column;
   justify-content:center ;
 }
 
 
 .oven-name {
   text-align: center;
+}
+
+
+.oven-box {
+  margin: 1px;
+  display:flex;
+  border: blue 2px solid;
+  border-radius: 15px;
+  background: rgba(130, 235, 235, 0.473);
 }
 
 

@@ -109,12 +109,13 @@ export function App() {
     }
   }
 
-  function removeOven(ovenNumber) {
-    switch(ovenNumber) {
+  function removeOven(oven) {
+    let number=oven.number
+    switch(number) {
       case 1:
         setOven1(
           {
-            ovenNumber:     1,
+            number:     1,
             name:           null,
             temp:           null,
             slots:          null,
@@ -127,7 +128,7 @@ export function App() {
         case 2:
         setOven2(
           {
-            ovenNumber:     2,
+            number:     2,
             name:           null,
             temp:           null,
             slots:          null,
@@ -140,7 +141,7 @@ export function App() {
         case 3:
         setOven3(
           {
-            ovenNumber:     3,
+            number:     3,
             name:           null,
             temp:           null,
             slots:          null,
@@ -169,7 +170,7 @@ export function App() {
   for (let ovenKey of ovenList) {
     // alert(returnOven(ovenKey.number).name);
     displayBuffer.push(
-      <section>
+      <div className='oven-box'>
         <div class="add-oven">
         <IconButton
           onClick={() => {
@@ -179,7 +180,7 @@ export function App() {
         <MicrowaveIcon style={{ color: "grey" }} />
         </IconButton>
         </div>
-        <div className='all-ovens-wrapper'>
+        <div className='oven-instance'>
             <Grid 
             ovenName={returnOven(ovenKey.number).name} 
             ovenTemp={returnOven(ovenKey.number).temp}
@@ -190,7 +191,7 @@ export function App() {
             removeOven={() => removeOven(returnOven(ovenKey.number))}
           />  
         </div>
-      </section>
+      </div>
     );
   }
   return (<>{displayBuffer}</>)
