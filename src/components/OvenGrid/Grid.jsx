@@ -1,5 +1,5 @@
 import Slot from "../OvenSlot/Slot"
-import OvenInfo from "./RemoveGrid";
+import OvenInfo from "./OvenInfo";
 
 export default function Grid(props) {
     let { ovenName, ovenTemp, ovenSlots, ovenCustomer, ovenTime, ovenHidden, removeOven } = props;
@@ -13,6 +13,10 @@ export default function Grid(props) {
             <>
                 <OvenInfo
                     ovenName={ovenName}
+                    ovenTemp={ovenTemp}
+                    ovenSlots={ovenSlots}
+                    ovenCustomer={ovenCustomer}
+                    ovenTime={ovenTime}
                     removeOven={removeOven}
                 />
                 <div ovenWrapper="oven-wrapper">
