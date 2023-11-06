@@ -1,20 +1,19 @@
-import DeleteIcon from '@mui/icons-material/Delete';
+import AlarmOffIcon from '@mui/icons-material/AlarmOff';
 import { IconButton } from '@mui/material';
 
 
 export default function TimerInfo(props) {
-  let { removeTimer, timerName } = props;
+  let { removeTimer } = props;
   return (
-    <div className="title-bar">
+    <div>
       <IconButton
-        // style={{ color: "white" }}
         aria-label="delete"
         color="default"
         onClick={() => {
           removeTimer();
         }}
       >
-        <DeleteIcon />
+        <AlarmOffIcon />
       </IconButton>
     </div>
   );

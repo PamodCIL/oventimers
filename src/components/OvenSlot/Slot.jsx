@@ -51,14 +51,14 @@ export default function Slot(props) {
         createTimer={() => createTimer()}
         />
       :
-        <>
+        <div className="slot-buttons">
           <TimerBody
             expiryTimestamp={timer.expiryTimestamp}
           />
           <TimerInfo
           removeTimer={removeTimer}
           />
-        </>
+        </div>
       }      
     </>
   );

@@ -4,10 +4,7 @@ import TextField from '@mui/material/TextField';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns'
 import { TimePicker } from '@mui/x-date-pickers'
-import TimerButtons from "./TimerButtons.jsx";
-import TimerBody from "./TimerBody.jsx";
 import * as utils from "../utils.js";
-import TimerInfo from "./TimerInfo.jsx"
 
 
 export default function TimerConfig(props) {
@@ -42,7 +39,7 @@ function saveDuration(ovenDuration) {
 }
 
   return (
-    <section className="timer-wrapper">
+    <div className="timer-wrapper">
       <>
       <LocalizationProvider dateAdapter={AdapterDateFns}>
       <TimePicker
@@ -52,7 +49,7 @@ function saveDuration(ovenDuration) {
         views={["hours", "minutes"]}
         inputFormat="HH:mm"
         mask="__:__"
-        label="HH:MM"
+        label="Cure Time"
         value={input}
         onChange={(newValue) => {
           saveDuration(newValue);
@@ -71,8 +68,7 @@ function saveDuration(ovenDuration) {
       />
     </LocalizationProvider>
     </>
-      
-    </section>
+    </div>
   );
 }
 

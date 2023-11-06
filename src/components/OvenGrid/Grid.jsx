@@ -30,14 +30,12 @@ export default function Grid(props) {
                     removeOven      ={removeOven}
                     ovenNumber      ={ovenNumber}
                 />
-                <div ovenWrapper="oven-wrapper">
-                    <section class="grid-container">
-                        <table class="oven-grid">
+                <div className="oven-wrapper">
+                    <table class="oven-grid">
                         <tbody>
                             {displayBuffer}
                         </tbody>
                     </table>
-                    </section>
                 </div>   
             </>
         );

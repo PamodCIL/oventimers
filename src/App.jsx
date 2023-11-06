@@ -51,8 +51,8 @@ export function App() {
         '<input type="text" id="swal-input1" class="swal2-input">Name</input>' +
         '<input type="number" min="100" max="300" value="200" step="10" id="swal-input2" class="swal2-input">Temperature</input>' +
         '<input type="number" max="12" min="2" step="2" value="2" id="swal-input3" class="swal2-input">Slots</input>' +
-        '<input type=text" id="swal-input4" class="swal2-input">Customer</input>',
-      focusConfirm: false,
+        '<input type=text" id="swal-input4" value="ONT" class="swal2-input">Customer</input>',
+        focusConfirm: false,
       preConfirm: () => {
         return [
           document.getElementById('swal-input1').value,
