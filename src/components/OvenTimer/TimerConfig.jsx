@@ -8,17 +8,12 @@ import * as utils from "../utils.js";
 
 
 export default function TimerConfig(props) {
-  let { expiryTimestamp, isHidden, removeTimer, timerName, ovenNumber } = props;
+  let { expiryTimestamp, timerName, ovenNumber } = props;
   const {
-    totalSeconds,
     seconds,
     minutes,
     hours,
-    days,
-    isRunning,
-    start,
     pause,
-    resume,
     restart,
   } = useTimer({ 
     autoStart: false,
@@ -31,7 +26,7 @@ export default function TimerConfig(props) {
     }
   });
 
-  const clockValues = [hours, minutes, seconds];
+  // const clockValues = [hours, minutes, seconds];
   const [input, setInput] = useState(utils.getInputStorage(0));
 
 function saveDuration(ovenDuration) {
@@ -49,7 +44,7 @@ function saveDuration(ovenDuration) {
         views={["hours", "minutes"]}
         inputFormat="HH:mm"
         mask="__:__"
-        label="Cure Time"
+        label="Cure Time [HH:MM]"
         value={input}
         onChange={(newValue) => {
           saveDuration(newValue);
