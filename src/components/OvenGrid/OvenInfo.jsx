@@ -26,7 +26,7 @@ export default function OvenInfo(props) {
       <div className="title-bar">
         <h1 className='oven-name'>{ovenName}</h1>
         <div className='oven-info'>
-          <p>Temp: {ovenTemp}</p>
+          <p>Temperature: {ovenTemp}°C</p>
           <p>Customer: {ovenCustomer}</p>
         </div>
         <TimerConfig
