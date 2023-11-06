@@ -45,12 +45,13 @@ export function App() {
   async function createOven(ovenNumber) {
     const { value: formValues } = await Swal.fire({
       title: 'Enter Oven Info',
+      position: "top",
+      showCancelButton: true,
       html:
-        '<input id="swal-input1" class="swal2-input">Name</input>' +
-        '<input id="swal-input2" class="swal2-input">Temperature</input>' +
-        '<input id="swal-input3" class="swal2-input">Slots</input>' +
-        '<input id="swal-input4" class="swal2-input">Customer</input>' +
-        '<input id="swal-input5" class="swal2-input">Time</input>',
+        '<input type="text" id="swal-input1" class="swal2-input">Name</input>' +
+        '<input type="number" min="100" max="300" value="200" step="10" id="swal-input2" class="swal2-input">Temperature</input>' +
+        '<input type="number" max="12" min="2" step="2" id="swal-input3" class="swal2-input">Slots</input>' +
+        '<input type=text" id="swal-input4" class="swal2-input">Customer</input>',
       focusConfirm: false,
       preConfirm: () => {
         return [
@@ -58,7 +59,6 @@ export function App() {
           document.getElementById('swal-input2').value,
           document.getElementById('swal-input3').value,
           document.getElementById('swal-input4').value,
-          document.getElementById('swal-input5').value,
         ]
       }
     })
@@ -74,7 +74,6 @@ export function App() {
               temp:           formValues[1],
               slots:          formValues[2],
               customerNumber: formValues[3],
-              cureTime:       formValues[4],
               hidden:         false,
             },
           )
@@ -87,7 +86,6 @@ export function App() {
               temp:           formValues[1],
               slots:          formValues[2],
               customerNumber: formValues[3],
-              cureTime:       formValues[4],
               hidden:         false,
             },
           )
@@ -100,7 +98,6 @@ export function App() {
               temp:           formValues[1],
               slots:          formValues[2],
               customerNumber: formValues[3],
-              cureTime:       formValues[4],
               hidden:         false,
             },
           )
@@ -120,7 +117,6 @@ export function App() {
             temp:           null,
             slots:          null,
             customerNumber: null,
-            cureTime:       null,
             hidden:         true,
           },
         )
@@ -133,7 +129,6 @@ export function App() {
             temp:           null,
             slots:          null,
             customerNumber: null,
-            cureTime:       null,
             hidden:         true,
           },
         )
@@ -146,7 +141,6 @@ export function App() {
             temp:           null,
             slots:          null,
             customerNumber: null,
-            cureTime:       null,
             hidden:         true,
           },
         )
@@ -186,7 +180,6 @@ export function App() {
             ovenTemp={returnOven(ovenKey.number).temp}
             ovenSlots={returnOven(ovenKey.number).slots}
             ovenCustomer={returnOven(ovenKey.number).customerNumber}
-            ovenTime={returnOven(ovenKey.number).cureTime}
             ovenHidden={returnOven(ovenKey.number).hidden}
             removeOven={() => removeOven(returnOven(ovenKey.number))}
           />  
