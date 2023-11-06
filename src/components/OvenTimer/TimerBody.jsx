@@ -25,7 +25,7 @@ export default function TimerBody(props) {
           let time = utils.parseTime(input);
           restart(time);
           pause();
-          utils.playAudio(timerName);
+          utils.timerExpired(timerName);
         }
       });
 

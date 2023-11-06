@@ -30,7 +30,7 @@ export default function TimerConfig(props) {
       let time = utils.parseTime(input);
       restart(time);
       pause();
-      utils.playAudio(timerName);
+      utils.timerExpired(timerName);
     }
   });
 
@@ -52,7 +52,7 @@ function saveDuration(ovenDuration) {
         views={["hours", "minutes"]}
         inputFormat="HH:mm"
         mask="__:__"
-        label="Edit Duration"
+        label="HH:MM"
         value={input}
         onChange={(newValue) => {
           saveDuration(newValue);

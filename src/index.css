@@ -43,7 +43,8 @@ code {
 
 
 .table {
-  border-radius:15px;
+  
+  border-radius:6px;
 }
 
 tbody {
@@ -52,20 +53,31 @@ tbody {
 
 
 .oven-grid  {
-  border-collapse:collapse;
-  border-radius: 15px;
+  border-collapse: separate;
+  border: solid grey 1px;
+  border-radius: 10px;
   border-spacing:0;
 }
 
 
-.oven-grid td{
+.oven-info {
+  flex-grow: 2;
+}
+
+
+.oven-grid td, .oven-grid th{
   border-color:grey;
+  border-top: none;
   border-style:solid;
   border-width:1px;
   font-family:Arial, sans-serif;
   font-size:14px;
   overflow:hidden;
   padding:0px 10px;
+}
+
+td:first-child, th:first-child {
+  border-left: none;
 }
 
 
@@ -91,6 +103,7 @@ tbody {
 
 .timer-wrapper {
   min-width: 105px;
+  flex-grow: 2;
 }
 
 

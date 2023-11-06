@@ -2,7 +2,7 @@ import Swal from "sweetalert2";
 import audioURL from "../media/Leapfrog.ogg";
 
 
-export function playAudio(timerName) {
+export function timerExpired(timerName) {
     Swal.close();
     let audio = new Audio(audioURL);
     audio.loop = true;
@@ -53,13 +53,13 @@ export function getInputStorage(ovenNumber) {
 
 export function setOvenDuration(ovenNumber, ovenDuration) {
   let storageString = ("Oven"+ovenNumber)
-  localStorage.setItem(storageString, ovenDuration.toJSON());
+  sessionStorage.setItem(storageString, ovenDuration.toJSON());
 }
 
 
 export function getOvenDuration(ovenNumber) {
   let storageString = ("Oven"+ovenNumber)
-  let ovenDuration = localStorage.getItem(storageString)
+  let ovenDuration = sessionStorage.getItem(storageString)
   let duration = new Date(ovenDuration)
   return duration  
 }
