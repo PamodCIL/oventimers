@@ -7,10 +7,12 @@ export function timerExpired(slotNumber, ovenNumber, ovenName) {
     let audio = new Audio(audioURL);
     audio.loop = true;
     audio.play();
-    Swal.fire({ title: `Oven ${ovenNumber}: ${ovenName}, Slot ${slotNumber} finished`, icon: "warning" }).then(() => {
+    Swal.fire({ title: `Oven ${ovenNumber}: ${ovenName} \nSlot ${slotNumber}\nFinished`, icon: "warning" }).then(() => {
       audio.loop = false;
       audio.pause();
     });
+    // change the expired slot to red
+
   }
 
 
