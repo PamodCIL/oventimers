@@ -21,6 +21,7 @@ export default function TimerBody(props) {
       } = useTimer({ 
         autoStart: true,
         expiryTimestamp, 
+        // Executes when timer runs out
         onExpire: () => {
           let time = utils.parseTime(input);
           restart(time);
