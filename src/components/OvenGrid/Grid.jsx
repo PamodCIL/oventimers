@@ -15,8 +15,8 @@ export default function Grid(props) {
         for (let i = 1; i <= (Math.floor(ovenSlots/2)); i++){
             displayBuffer.push(
                 <tr>
-                    <td class="oven-cell"><Slot ovenTime={ovenTime} ovenNumber={ovenNumber} /></td>
-                    <td class="oven-cell"><Slot ovenTime={ovenTime} ovenNumber={ovenNumber} /></td>
+                    <td class="oven-cell"><Slot ovenName={ovenName} ovenNumber={ovenNumber} slotNumber={i}/></td>
+                    <td class="oven-cell"><Slot ovenName={ovenName} ovenNumber={ovenNumber} slotNumber={i+1}/></td>
                 </tr>
             );
         }

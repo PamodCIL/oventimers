@@ -5,16 +5,13 @@ import * as utils from "../utils.js";
 
 
 export default function TimerBody(props) {
-    let { expiryTimestamp, isHidden, removeTimer, timerName } = props;
+    let { expiryTimestamp, slotNumber, ovenNumber, ovenName } = props;
 
     const {
-        totalSeconds,
         seconds,
         minutes,
         hours,
-        days,
         isRunning,
-        start,
         pause,
         resume,
         restart,
@@ -26,7 +23,7 @@ export default function TimerBody(props) {
           let time = utils.parseTime(input);
           restart(time);
           pause();
-          utils.timerExpired(timerName);
+          utils.timerExpired(slotNumber, ovenNumber, ovenName);
         }
       });
 

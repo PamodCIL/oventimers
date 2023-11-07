@@ -7,32 +7,30 @@ import { getOvenDuration } from "../utils";
 
 export default function Slot(props) {
   
-  let { ovenTime, ovenNumber } = props;
+  let { slotNumber, ovenNumber, ovenName } = props;
+
   const [timer, setTimer] = useState({
     expiryTimestamp: 0,
     isHidden: true,
   });
 
 
-    function createTimer() {
+  function createTimer() {
     const duration = getOvenDuration(ovenNumber)
     const midnight = new Date();
     midnight.setHours(0, 0, 0, 0)
     let durationDiff = (duration-midnight) / 1000;
     const time = new Date();
     time.setSeconds(time.getSeconds() + durationDiff); // 10 minutes timer
-    
-      setTimer(
-        {
-          isHidden: false,
-          expiryTimestamp: time,
-        },
-      );
-    }
-
-  function timeChange(seconds) {
-    setTimer(seconds)
+  
+    setTimer(
+      {
+        isHidden: false,
+        expiryTimestamp: time,
+      },
+    );
   }
+
 
   function removeTimer(timer) {
     setTimer({
@@ -54,6 +52,9 @@ export default function Slot(props) {
         <div className="slot-buttons">
           <TimerBody
             expiryTimestamp={timer.expiryTimestamp}
+            slotNumber={slotNumber}
+            ovenNumber={ovenNumber}
+            ovenName={ovenName}
           />
           <TimerInfo
           removeTimer={removeTimer}
