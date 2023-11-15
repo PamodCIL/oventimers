@@ -10,7 +10,7 @@ export default function Grid(props) {
         )
     } else {
 
-        
+
         let displayBuffer = [];
 
         for (let i = 1; i <= (Math.floor(ovenSlots/2)); i++){
