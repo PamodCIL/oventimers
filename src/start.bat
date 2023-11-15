@@ -1,4 +1,3 @@
-echo off
-start cmd.exe /k "call npm start"
-sleep 15
+@echo off
+call npm start
 exit
