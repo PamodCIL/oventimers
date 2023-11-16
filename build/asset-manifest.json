@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/oventimers/static/css/main.961c1499.css",
+    "main.js": "/oventimers/static/js/main.5631e536.js",
+    "static/js/787.a914de7b.chunk.js": "/oventimers/static/js/787.a914de7b.chunk.js",
+    "static/media/Leapfrog.ogg": "/oventimers/static/media/Leapfrog.00b4adbd00ca17bf851a.ogg",
+    "index.html": "/oventimers/index.html",
+    "main.961c1499.css.map": "/oventimers/static/css/main.961c1499.css.map",
+    "main.5631e536.js.map": "/oventimers/static/js/main.5631e536.js.map",
+    "787.a914de7b.chunk.js.map": "/oventimers/static/js/787.a914de7b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.961c1499.css",
+    "static/js/main.5631e536.js"
+  ]
+}
